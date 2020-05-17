@@ -58,7 +58,7 @@ while running:
 
     if pygame.sprite.spritecollideany(player, tail_parts):
         player.kill()
-        tail_parts.kill()
+        tail_parts.empty()
         running = False
 
     if pygame.sprite.spritecollideany(player, [snake_food]):
