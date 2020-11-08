@@ -1,6 +1,7 @@
 import pygame
 import random
 
+
 class Food(pygame.sprite.Sprite):
     def __init__(self, screen_width, screen_height):
         super(Food, self).__init__()

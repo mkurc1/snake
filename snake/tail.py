@@ -1,5 +1,6 @@
 import pygame
 
+
 class Tail(pygame.sprite.Sprite):
     def __init__(self, left, top):
         super(Tail, self).__init__()

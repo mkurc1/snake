@@ -9,11 +9,13 @@ from pygame.locals import (
     QUIT
 )
 
+
 class Snake(object):
     def __init__(self, screen_width, screen_height):
         super().__init__()
         self.__screen_width = screen_width
         self.__screen_height = screen_height
+        self.__font_name = pygame.font.match_font('arial')
 
     def play(self):
         pygame.init()
@@ -71,6 +73,17 @@ class Snake(object):
                 all_sprites.add(food)
                 player.tail += 1
 
+            self.__update_score(player.tail, screen)
             pygame.display.flip()
 
             clock.tick(30)
+
+    def __draw_text(self, surf, text, size, x, y):
+        font = pygame.font.Font(self.__font_name, size)
+        text_surface = font.render(text, True, (255, 255, 255))
+        text_rect = text_surface.get_rect()
+        text_rect.midtop = (x, y)
+        surf.blit(text_surface, text_rect)
+
+    def __update_score(self, score, screen):
+        self.__draw_text(screen, str(score), 18, self.__screen_width / 2, 10)

@@ -6,6 +6,7 @@ from pygame.locals import (
     K_RIGHT
 )
 
+
 class Player(pygame.sprite.Sprite):
     def __init__(self, screen_width, screen_height):
         super(Player, self).__init__()
